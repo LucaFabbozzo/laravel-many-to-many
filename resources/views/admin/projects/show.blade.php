@@ -3,6 +3,7 @@
 @section('content')
     <div class="container w-75 m-auto text-center pt-2 text">
         <a href="{{route('admin.projects.index')}}" class="btn btn-outline-secondary text-uppercase my-4">Back to the List</a>
+        <a href="{{route('admin.projects.edit', $project)}}"  class="btn btn-outline-secondary text-uppercase my-4">Go to edit</a>
         <div class="card m-auto p-2 mb-5" style="width: 70%;">
         @if ($project->cover_image)
             <img style="width: 40%" src="{{asset('storage/'. $project->cover_image)}}" class="card-img-top m-auto" alt="{{$project->image_original_name}}">
