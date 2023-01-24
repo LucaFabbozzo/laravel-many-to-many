@@ -14,6 +14,9 @@
                 @endforeach
             </div>
         @endif
+        @if ($project->type)
+            <h4>Type: {{ $project->type->name }}</h4>
+        @endif
             <div class="card-body">
                 <h4 class="card-title fs-2">{{$project->name}}</h4>
                 <p class="card-title fs-4">{{$project->client_name}}</p>
