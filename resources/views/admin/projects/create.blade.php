@@ -38,7 +38,15 @@
             <div class="mb-3">
                 <p class="form-label">Technology</p>
                 @foreach ($technologies as $technology )
-                    <input id="{{ $technology->slug }}" type="checkbox" name="technologies[]" value="{{ $technology->id }}">
+                    <input
+                    id="{{ $technology->slug }}"
+                    type="checkbox"
+                    name="technologies[]"
+                    value="{{ $technology->id }}"
+                    @if (in_array($technology->id, old('technologies', [])))
+                        checked
+                    @endif
+                    >
                     <label class="me-2" for="{{ $technology->slug }}">{{ $technology->name }}</label>
                 @endforeach
             </div>

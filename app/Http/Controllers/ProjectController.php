@@ -61,13 +61,17 @@ class ProjectController extends Controller
             $form_data['cover_image'] = Storage::put('uploads', $form_data['cover_image']);
         }
 
-
-
-
         $new_project->fill($form_data);
         $new_project->save();
 
-        return redirect()->route('admin.projects.show', $new_project);
+        if (array_key_exists('technologies', $form_data)) {
+            $new_project->technologies()->attach($form_data['technologies']);
+        }
+
+
+
+
+        return redirect()->route('admin.projects.show', $new_project)->with('message', 'Post created successfully');
     }
 
     /**
