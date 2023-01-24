@@ -31,6 +31,13 @@
                     <td>{{ $project->name }} <span class="badge text-bg-dark">{{ $project->type->name }}</span></td>
                     <td>{{ $project->client_name }}</td>
                     <td>{!! $project->summary !!}</td>
+                    <td>
+                        @forelse ($project->technologies as $technology)
+                            <p><span class="badge text-bg-info">{{ $technology->name }}</span></p>
+                        @empty
+                            <p>No result</p>
+                        @endforelse
+                    </td>
                     <td><a class="btn btn-outline-primary" href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye"></i></a></td>
                     <td><a class="btn btn-outline-success" href="{{route('admin.projects.edit', $project)}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
                      <td>
