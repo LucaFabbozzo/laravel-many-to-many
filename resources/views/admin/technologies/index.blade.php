@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container w-50 m-auto text-center pt-2 text">
+    <div class="container w-50 m-auto text-center pt-2">
         @if (session('message'))
             <div class="alert alert-success" role="alert">
                 {{session('message')}}
@@ -10,7 +10,7 @@
 
         <form  action="{{route('admin.technologies.store')}}" method="POST">
             @csrf
-            <div class="input-group my-5">
+            <div class="input-group my-4 w-50 m-auto">
                 <input type="text" class="form-control" name="name" placeholder="Add new technology">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                 <i class="fa-solid fa-plus me-2"></i>Add</button>
@@ -38,7 +38,7 @@
                     <td>
                          @include('admin.partials.form-delete',[
                             'route' => 'technologies',
-                            'message' => "Confermi l'eliminazione del tag: $technology->name ?",
+                            'message' => "You want to delete the technology: $technology->name ?",
                             'entity' => $technology
                         ])
                     </td>
