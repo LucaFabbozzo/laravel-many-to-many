@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Technologies;
+use App\Models\Technology;
 use Illuminate\Support\Str;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,12 +16,12 @@ class TechnologiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['HTML', 'CSS', 'Javascript', 'PHP', 'MySql', 'VueJs', 'Laravel'];
+        $data = ['HTML', 'CSS', 'Javascript', 'VueJs', 'Bootstrap', 'Laravel', 'MySql'];
 
-        foreach($data as $tech) {
-            $new_tech = new Technologies();
-            $new_tech->name = $tech;
-            $new_tech->slug = Str::slug($tech);
+        foreach ($data as $technology) {
+            $new_tech = new Technology();
+            $new_tech->name =$technology;
+            $new_tech->slug = Str::slug($technology);
             $new_tech->save();
         }
     }
